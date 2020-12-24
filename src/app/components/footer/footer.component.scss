@@ -1,0 +1,37 @@
+section{
+    background-color: #424242;
+    text-align: center;
+}
+a , p{
+    color: #fff;    
+}
+.row {
+    padding: 20px 0;
+}
+.blue-text{
+    color: #2D9CDB;
+}
+.text-grow-size{
+    font-size: 1.3em;
+}
+.icon-social-network{    
+    font-size: 40px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px){
+    section {
+        font-size: 14px;;
+    }
+
+    .icon-social-network{
+        font-size: 30px;
+    }
+    .col-md-4{
+        padding: 20px 0;
+    }
+    .justify-content-between{
+        max-width: 300px;
+        margin: auto;
+    }
+}

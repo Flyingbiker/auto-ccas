@@ -1,0 +1,45 @@
+.btn-primary {
+  background-color: #FBB040;
+  border-color: #FBB040;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-primary:hover {
+  background-color: #FBB040;
+  border-color: #FBB040;
+  opacity: 0.8;
+  scale: 1.1;
+}
+
+.logo {
+  max-height: 100px;
+}
+
+.navbar-light .navbar-nav .nav-link:not(.btn) {
+  color: #FBB040;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  background-color: #FBB040;
+  border-color: #FBB040;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.connexion::before {
+  content: "";
+  display: inline-block;
+  background-image: url("../../../assets/img/user.svg");
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=header.component.css.map */

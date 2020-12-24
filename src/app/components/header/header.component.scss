@@ -1,0 +1,65 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.btn-primary {
+    background-color: $orange-auto-ccas;
+    border-color: $orange-auto-ccas;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $orange-auto-ccas;
+        border-color: $orange-auto-ccas;
+        opacity: 0.8;
+        scale: 1.1;
+    }
+    
+}
+a{
+    font-size: 18px;
+}
+.logo{
+    max-width:200px;
+}
+
+.navbar-light .navbar-nav .nav-link:not(.btn){
+    color:$orange-auto-ccas;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+    padding: 15px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $orange-auto-ccas;
+        border-color: $orange-auto-ccas ;
+        color:#fff;
+        border-radius: 5px;
+    }
+}
+.connexion::before{
+    content: "";
+    display: inline-block;
+    background-image: url("../../../assets/img/connection.svg");
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.deconnexion::before{
+    content: "";
+    display: inline-block;
+    background-image: url("../../../assets/img/disconnection.svg");
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px){
+    a.nav-link:not(.btn){
+        padding-left: 30px !important; 
+    }
+    a{
+        font-size: 14px;
+    }
+    .logo{
+        max-width:125px;
+    }
+}
