@@ -1,4 +1,4 @@
-@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import '~bootstrap/scss/bootstrap';
 
 .btn-primary {
     background-color: $orange-auto-ccas;
@@ -9,8 +9,7 @@
         border-color: $orange-auto-ccas;
         opacity: 0.8;
         scale: 1.1;
-    }
-    
+    }    
 }
 a{
     font-size: 18px;

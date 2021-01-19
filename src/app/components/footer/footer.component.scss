@@ -1,3 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+.btn-primary {
+    background-color: $orange-auto-ccas;
+    border-color: $orange-auto-ccas;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $orange-auto-ccas;
+        border-color: $orange-auto-ccas;
+        opacity: 0.8;
+        scale: 1.1;
+    }    
+}
 section{
     background-color: #424242;
     text-align: center;
@@ -5,8 +17,11 @@ section{
 a , p{
     color: #fff;    
 }
-.row {
+.row:not(:last-child) {
     padding: 20px 0;
+}
+.row:last-child {
+    padding-bottom: 20px;
 }
 .blue-text{
     color: #2D9CDB;
@@ -17,6 +32,9 @@ a , p{
 .icon-social-network{    
     font-size: 40px;
     color: #fff;
+}
+.vertical-lign{       
+    border-right : solid 1px #fff;
 }
 
 @media screen and (max-width: 768px){
@@ -33,5 +51,8 @@ a , p{
     .justify-content-between{
         max-width: 300px;
         margin: auto;
+    }
+    .vertical-lign{ 
+        border: 0;
     }
 }

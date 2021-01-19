@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { Component, Input } from '@angular/core';
+// import { CarouselComponent } from './components/carousel/carousel.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { CarouselComponent } from './components/carousel/carousel.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'auto-ccas';
+  
 }

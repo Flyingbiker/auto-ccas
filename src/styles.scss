@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+h1,h2{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    color: $orange-auto-ccas;    
+    text-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+h1{
+    font-size: 4rem !important;
+    line-height: 60px !important;   
+    padding-bottom: 40px;  
+}
+h2{
+    font-size: 2.2rem !important;
+}
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 2rem !important;
+        line-height: 30px !important;   
+        padding-bottom: 20px; 
+    }
+    h2{
+        font-size: 1.5rem !important;
+    }
+}
