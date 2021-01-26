@@ -1,26 +1,25 @@
-<div class="card">
+<div class="card" *ngFor="let annonce of annonces">
     <img src="../../../assets/caroussel/slider-1.jpg" class="img-fluid" alt="image">
     <div class="card-body">
         <div class="d-flex justify-content-between">
-            <h5 class="card-title">Marque - modèle</h5>
+            <h5 class="card-title">Marque - modèle: {{annonce.id_model}}</h5>
             <h5 class="price">Prix</h5>
         </div>
         <h6>Motorisation - finition</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+        <p class="card-text">{{annonce.description}} </p>
     </div>
     <div class="pictogram-bar d-flex justify-content-between container">
         <div>
             <img src="../../../assets/img/calendar-page.svg" class="img-fluid" alt="">
-            <p>2010</p>
+            <p>{{annonce.creation_date_annonce | date : 'dd/MM/yyyy' }}</p>
         </div>
         <div>
             <img src="../../../assets/img/meandering-road-with-trees-at-sides.svg" class="img-fluid" alt="">
-            <p>2010</p>
+            <p>{{annonce.year_of_circulation | date : 'MM/yyyy' }}</p>
         </div>
         <div>
             <img src="../../../assets/img/gasoline-pump.svg" class="img-fluid" alt="">
-            <p>2010</p>
+            <p>{{annonce.kilometer}}</p>
         </div>
         <div>
             <img src="../../../assets/img/localisation.svg" class="img-fluid" alt="">

@@ -2,17 +2,6 @@
     <h1>Votre réseau de vente de voitures d’occasion par des 
         garagistes profesionnels</h1>
         <app-search-bar></app-search-bar>
-        <div class="row">
-            <div class="col-md">
-                <app-card-car></app-card-car>
-            </div>
-            <div class="col-md">
-                <app-card-car></app-card-car>
-            </div>
-            <div class="col-md">
-                <app-card-car></app-card-car>
-            </div>
-            
-        </div>
+        <app-card-car [annonces]="arrayAnnonces"></app-card-car>        
     
 </div>
