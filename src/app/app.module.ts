@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { GarageService } from './services/garage/garage.service';
 import { UserService } from './services/user/user.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { CookiesViewComponent } from './views/cookies-view/cookies-view.componen
 import { MapWebSiteViewComponent } from './views/map-web-site-view/map-web-site-view.component';
 import { PurchaseGuideViewComponent } from './views/purchase-guide-view/purchase-guide-view.component';
 import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule, 
+    NgbModule,
+    BrowserAnimationsModule,    
+    MatCardModule     
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers

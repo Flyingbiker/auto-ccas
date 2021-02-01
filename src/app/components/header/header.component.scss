@@ -11,6 +11,13 @@
         scale: 1.1;
     }    
 }
+.btn-header-active {
+    background-color: $orange-auto-ccas;
+    border-color: $orange-auto-ccas;
+    color:#fff;
+    opacity: 1;
+    scale: 1;
+}
 a{
     font-size: 18px;
 }

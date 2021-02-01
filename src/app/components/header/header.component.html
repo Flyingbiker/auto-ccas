@@ -14,16 +14,16 @@
                 [ngClass]="{'show': navbarOpen}">
                 <ul class="navbar-nav w-100 justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/' routerLinkActive="">Nos voitures d'occasion</a>
+                        <a class="nav-link" routerLink='/' >Nos voitures d'occasion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/guide_achat' routerLinkActive="">Guide d'achat</a>
+                        <a class="nav-link" routerLink='/guide_achat' routerLinkActive="btn-header-active">Guide d'achat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/' routerLinkActive="">Accès Pro</a>
+                        <a class="nav-link" routerLink='/acces_pro' routerLinkActive="btn-header-active">Accès Pro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink='/contact' routerLinkActive="">Contactez-nous</a>
+                        <a class="nav-link" routerLink='/contact' routerLinkActive="btn-header-active">Contactez-nous</a>
                     </li>
 
                     <ng-container *ngIf="connected; else notConnected">
