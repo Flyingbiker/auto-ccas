@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" routerLink='/'>
                 <img src="../../../assets/img/logo.png" alt="logo" class="img-fluid logo" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -14,29 +14,29 @@
                 [ngClass]="{'show': navbarOpen}">
                 <ul class="navbar-nav w-100 justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link" [routerLinkActive]="[ '/path' ]">Nos voitures d'occasion</a>
+                        <a class="nav-link" routerLink='/' routerLinkActive="">Nos voitures d'occasion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLinkActive]="[ '/path' ]">Guide d'achat</a>
+                        <a class="nav-link" routerLink='/guide_achat' routerLinkActive="">Guide d'achat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLinkActive]="[ '/path' ]">Accès Pro</a>
+                        <a class="nav-link" routerLink='/' routerLinkActive="">Accès Pro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLinkActive]="[ '/path' ]">Contactez-nous</a>
+                        <a class="nav-link" routerLink='/contact' routerLinkActive="">Contactez-nous</a>
                     </li>
 
                     <ng-container *ngIf="connected; else notConnected">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary " href="#">Mon Profil</a>
+                            <a class="nav-link btn btn-primary " routerLink='/'>Mon Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary deconnexion" href="#">Déconnexion</a>
+                            <a class="nav-link btn btn-primary deconnexion" routerLink='/'>Déconnexion</a>
                         </li>
                     </ng-container>
                     <ng-template #notConnected>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary connexion" href="#">Connexion</a>
+                            <a class="nav-link btn btn-primary connexion" routerLink='/'>Connexion</a>
                         </li>
                     </ng-template>  
                                       

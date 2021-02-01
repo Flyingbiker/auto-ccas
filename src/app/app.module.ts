@@ -17,6 +17,11 @@ import { CardsViewComponent } from './views/cards-view/cards-view.component';
 import { ReassuranceComponent } from './components/reassurance/reassurance.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { UsersViewComponent } from './views/users-view/users-view.component';
+import { MainViewComponent } from './views/main-view/main-view.component';
+import { CookiesViewComponent } from './views/cookies-view/cookies-view.component';
+import { MapWebSiteViewComponent } from './views/map-web-site-view/map-web-site-view.component';
+import { PurchaseGuideViewComponent } from './views/purchase-guide-view/purchase-guide-view.component';
+import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { UsersViewComponent } from './views/users-view/users-view.component';
     CardsViewComponent,
     ReassuranceComponent,
     CardCarComponent,
-    UsersViewComponent,  
+    UsersViewComponent,
+    MainViewComponent,
+    CookiesViewComponent,
+    MapWebSiteViewComponent,
+    PurchaseGuideViewComponent,
+    ContactUsViewComponent,  
     
   ],
   imports: [
