@@ -1,3 +1,4 @@
+import { SocialNetworksComponent } from './views/social-networks/social-networks.component';
 import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-page.component';
 import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.component';
 import { PurchaseGuideViewComponent } from './views/purchase-guide-view/purchase-guide-view.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'cgv', component : CgvViewComponent},
   {path:'cookies', component : CookiesViewComponent},
   {path:'mapWebSite', component : MapWebSiteViewComponent},  
+  {path:'social-networks', component : SocialNetworksComponent},  
   {path:'', component : MainViewComponent},
   {path:'404-page', component : FourOFourPageComponent},
   {path:'**', redirectTo : '404-page'},

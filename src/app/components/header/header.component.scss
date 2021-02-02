@@ -4,17 +4,18 @@
     background-color: $orange-auto-ccas;
     border-color: $orange-auto-ccas;
     transition: all 0.5s;
-    &:hover{
-        background-color: $orange-auto-ccas;
-        border-color: $orange-auto-ccas;
+    &:hover, &:active{
+        background-color: $orange-auto-ccas !important;
+        border-color: $orange-auto-ccas !important;
         opacity: 0.8;
         scale: 1.1;
-    }    
+    } 
+
 }
 .btn-header-active {
     background-color: $orange-auto-ccas;
     border-color: $orange-auto-ccas;
-    color:#fff;
+    color:#fff !important;
     opacity: 1;
     scale: 1;
 }

@@ -25,6 +25,7 @@ import { PurchaseGuideViewComponent } from './views/purchase-guide-view/purchase
 import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-page.component';
+import { SocialNetworksComponent } from './views/social-networks/social-networks.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-pag
     MapWebSiteViewComponent,
     PurchaseGuideViewComponent,
     ContactUsViewComponent,
-    FourOFourPageComponent,  
+    FourOFourPageComponent,
+    SocialNetworksComponent,  
     
   ],
   imports: [

@@ -31,12 +31,18 @@
                             <a class="nav-link btn btn-primary " routerLink='/'>Mon Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary deconnexion" routerLink='/'>Déconnexion</a>
+                            <a class="nav-link btn btn-primary deconnexion" 
+                                routerLink='/ routerLinkActive="btn-header-active"'>
+                                Déconnexion
+                            </a>
                         </li>
                     </ng-container>
                     <ng-template #notConnected>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary connexion" routerLink='/'>Connexion</a>
+                            <a class="nav-link btn btn-primary connexion" 
+                                routerLink='/' routerLinkActive="btn-header-active">
+                                Connexion
+                            </a>
                         </li>
                     </ng-template>  
                                       
