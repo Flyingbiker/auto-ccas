@@ -24,6 +24,7 @@ import { MapWebSiteViewComponent } from './views/map-web-site-view/map-web-site-
 import { PurchaseGuideViewComponent } from './views/purchase-guide-view/purchase-guide-view.component';
 import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-page.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CookiesViewComponent,
     MapWebSiteViewComponent,
     PurchaseGuideViewComponent,
-    ContactUsViewComponent,  
+    ContactUsViewComponent,
+    FourOFourPageComponent,  
     
   ],
   imports: [
