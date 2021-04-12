@@ -1,4 +1,4 @@
-import { AnnonceItem } from './../../interfaces/annonces.d';
+import { Annonce } from '../../interfaces/annonce';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardCarComponent implements OnInit {
 
-  @Input() annonces : Array<AnnonceItem>;
+  @Input() annonce : Annonce;
 
   constructor() { }
 

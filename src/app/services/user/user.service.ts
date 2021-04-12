@@ -1,15 +1,16 @@
 import { User } from './../../models/user.model';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  arrayJson: Array<any>;
-  usersArray: Array<User> = [];
+  public arrayJson : Array<any>;
+  public usersArray : Array<User> = [];
 
-  constructor() {  
+  constructor(private httpClient : HttpClient) {  
     this.arrayJson= [
       {"id_user":1,"first_name":"Martin","last_name":"LODEVIE","email":"lodevie@gmail.com","password":"lodevie","phone":"0123456789","siret":"36252187900034","id_role":3,"date_creation_user":"2020-12-18 10:01:48"},
       {"id_user":2,"first_name":"admin","last_name":"admin","email":"admin@gmail.com","password":"admin","phone":"0123456789","siret":"admin","id_role":1,"date_creation_user":"2020-12-18 10:05:09"},
@@ -29,6 +30,19 @@ export class UserService {
           element.id_role))
       });
     
+  }
+
+  public getAllUsers() : void {
+     this.httpClient.get<Array<User>>('http://localhost/formation-dwwm/PHP/BackOffice_BC/index.php?controller=allUsers')
+      .subscribe(
+        (response) =>{
+          return this.usersArray = response;
+        },
+        (error) => {
+          console.error('Erreur lors de la requête Get pour récupérer les Users ' + error);
+        }
+      );
+
   }
   
 }

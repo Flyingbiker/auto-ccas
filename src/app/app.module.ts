@@ -1,6 +1,7 @@
 import { MatCardModule } from '@angular/material/card';
 import { GarageService } from './services/garage/garage.service';
 import { UserService } from './services/user/user.service';
+import { AnnonceService } from './services/annonce/annonce.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,6 +27,7 @@ import { ContactUsViewComponent } from './views/contact-us-view/contact-us-view.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-page.component';
 import { SocialNetworksComponent } from './views/social-networks/social-networks.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,12 +57,14 @@ import { SocialNetworksComponent } from './views/social-networks/social-networks
     FontAwesomeModule,
     NgbModule,
     BrowserAnimationsModule,    
-    MatCardModule     
+    MatCardModule,
+    HttpClientModule     
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers
     UserService,
     GarageService,
+    AnnonceService
   ],  
   bootstrap: [AppComponent]
 })

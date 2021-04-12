@@ -1,5 +1,3 @@
-import { UserService } from './../../services/user/user.service';
-import { User } from './../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersViewComponent implements OnInit {
 
-  usersTest : Array<User>;
-
-  constructor(private userService : UserService,) { 
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.usersTest = this.userService.usersArray;
   }
 
 }
