@@ -1,4 +1,4 @@
-import { Annonce } from '../../interfaces/annonce';
+import { Car } from '../../interfaces/car';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardCarComponent implements OnInit {
 
-  @Input() annonce : Annonce;
+  @Input() annonce : Car;
 
   constructor() { }
 

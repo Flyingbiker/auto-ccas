@@ -1,4 +1,5 @@
 import { Annonce } from '../../interfaces/annonce';
+import { Car } from '../../interfaces/car';
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,9 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CardsViewComponent implements OnInit {
 
-  annoncesArray : Array<Annonce> = [];
-
-  
+  annoncesArray : Array<Car> = [];  
 
   constructor(private annonceService: AnnonceService) {  }
 

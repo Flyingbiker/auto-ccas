@@ -1,3 +1,5 @@
+import {Model} from './model.d' ;
+
 export interface Car {
     id : number;
         price: number;
@@ -6,12 +8,7 @@ export interface Car {
         fuel : {
             name: string;
         };
-        model: {
-            name : string;
-            brand : {
-                brand : string
-            }
-        };
+        model: Model;
         gear : {
             numberGear : number;
             description : string;
