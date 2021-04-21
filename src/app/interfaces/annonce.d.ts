@@ -1,6 +1,19 @@
 import {Car} from './car.d';
 
 export interface Annonce{
+    totalItems : number;
+    views: {
+        firstPage : string ;
+        nextPage? : string ;
+        previousPage? : string ;
+        lastPage : string ;
+    };
+    stats: {
+        minKm: number,
+        maxKm: number,
+        minYear: number,
+        maxYear: number,
+    }
     data : Array<Car>;
 }
 

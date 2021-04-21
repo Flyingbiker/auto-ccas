@@ -2,6 +2,7 @@ import { MatCardModule } from '@angular/material/card';
 import { GarageService } from './services/garage/garage.service';
 import { UserService } from './services/user/user.service';
 import { AnnonceService } from './services/annonce/annonce.service';
+import { SearchBarService } from './services/search-bar/search-bar.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -64,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers
     UserService,
     GarageService,
-    AnnonceService
+    AnnonceService,
+    SearchBarService
   ],  
   bootstrap: [AppComponent]
 })

@@ -10,22 +10,27 @@ import { Subject, Observable } from 'rxjs';
 export class AnnonceService {
 
   private carsArray : Array<Car> = [];
-  public annoncesSubject = new Subject<Array<Car>>();
+  private annonces : Annonce | null = null;
+  public annoncesSubject = new Subject<Annonce>();
+
+  private totalAnnonces : number | null = null ;
 
   constructor(private httpClient : HttpClient) { }
 
   public emitAnnoncesSubject(){
-    this.annoncesSubject.next(this.carsArray.slice());
+    this.annoncesSubject.next(this.annonces);
   }
 
-  public getAllAnnonces() : Observable<Array<Car>> {
+  public getAllAnnonces() : Observable<Annonce> {
     
-    // this.httpClient.get<Array<Annonce>>('http://formation-dwwm/PHP/API_BackOffice_BC/index.php?controller=allAnnonces')
     this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars')
       .subscribe(
         (response) => {
-          this.carsArray = response.data;  
-          this.emitAnnoncesSubject();                 
+          this.annonces = response;
+          this.carsArray = response.data; 
+          this.totalAnnonces = response.totalItems;  
+           
+          this.emitAnnoncesSubject();    
         }, 
         (error) => {
           throw 'Erreur lors de la récupération des annonces :' + error.message;

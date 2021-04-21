@@ -19,8 +19,7 @@ export class CardsViewComponent implements OnInit {
   ngOnInit(): void {
     this.annonceService.getAllAnnonces().subscribe(
       (response) => {
-        this.annoncesArray = response;
-        console.log(response);
+        this.annoncesArray = response.data;
       }      
     );
   }
