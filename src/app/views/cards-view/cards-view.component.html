@@ -6,5 +6,17 @@
             <app-card-car class="col-md-4" *ngFor="let annonce of annoncesArray"
                 [annonce]="annonce"></app-card-car>   
         </div>
-    
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center flex-wrap">
+                <li class="page-item">
+                    <a class="page-link" (click)="loadPreviousPage()">Previous</a>
+                </li>
+                <li class="page-item" *ngFor="let page of pages">
+                    <a class="page-link" (click)="loadPageByNumber(page)">{{page}} </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" (click)="loadNextPage()">Next</a>
+                </li>
+            </ul>
+        </nav>
 </div>

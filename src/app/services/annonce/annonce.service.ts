@@ -21,9 +21,9 @@ export class AnnonceService {
     this.annoncesSubject.next(this.annonces);
   }
 
-  public getAllAnnonces() : Observable<Annonce> {
+  public getAnnoncesByPage(page : number = 0) : Observable<Annonce> {
     
-    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars')
+    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars?page='+page)
       .subscribe(
         (response) => {
           this.annonces = response;

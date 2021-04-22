@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit  {
         console.log(this.brandsArray);
       }
     );    
-    this.annonceService.getAllAnnonces().subscribe(
+    this.annonceService.getAnnoncesByPage().subscribe(
       (response) => {
         console.log(response);
         this.totalAnnonces = response.totalItems;
