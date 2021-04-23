@@ -3,6 +3,7 @@ import { Brand } from 'src/app/interfaces/brand';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { SearchBarService } from 'src/app/services/search-bar/search-bar.service';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
@@ -16,8 +17,7 @@ export class SearchBarComponent implements OnInit  {
   public totalAnnonces : number = 0;
 
   //pour ngx-slider Km
-  minValueKm: number = 0;
-  maxValueKm: number = 150000;
+  valueKm: number = 150000;
   optionsKm: Options = {
     floor: 0,
     ceil: 200000,
@@ -25,11 +25,9 @@ export class SearchBarComponent implements OnInit  {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>Km min: </b> ' + value + 'km' ;
-        case LabelType.High:
           return '<b>Km max: </b> ' + value + 'km';
         default:
-          return  value + 'km';
+          return value + 'km';
       }
     }
   };
@@ -53,10 +51,17 @@ export class SearchBarComponent implements OnInit  {
     }
   };
 
+  searchbarForm = new FormGroup({
+    brandControl : new FormControl('', Validators.required)
+
+  })
+  selectedBrand = this.brandsArray[0]?.brand;
+
   constructor(private searchBarService : SearchBarService,
               private annonceService : AnnonceService) { }
 
   ngOnInit(): void {
+
     this.searchBarService.getAllBrands().subscribe(
       (response) => {
         this.brandsArray = response;
@@ -70,6 +75,11 @@ export class SearchBarComponent implements OnInit  {
       }
 
     ) ;
+    
+  }
+
+  public onSelectBrand(){
+    console.log("marque sélectionnée");
     
   }
 

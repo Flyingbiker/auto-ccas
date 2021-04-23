@@ -6,8 +6,9 @@
   </h2>
   <form action="" method="get">
     <div class="row">
-      <div class="col-md">
-        <label for="brand">Choisir la marque</label>
+    <!-- Le select natif d'HTML
+      <div class="col-md-4">
+        <label for="brand">Choisir la marque :</label>
         <select name="brand">
           <option value="">Choisir la marque</option>
           <option *ngFor="let brand of brandsArray"
@@ -16,23 +17,35 @@
           </option>
         </select>      
       </div>
-      <div class="col-md">
-        <label for="model">Choisir le modèle</label>
+    -->
+      <div class="col-md-4">
+        <mat-form-field appearance="fill">
+          <mat-label>Choisir la marque :</mat-label>
+          <mat-select [(value)]="selectedBrand" required>
+            <mat-option>Choisir la marque</mat-option>
+            <mat-option 
+              *ngFor="let option of brandsArray"
+              [value]="option.brand" 
+              
+              >{{ option.brand | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <label for="model">Choisir le modèle :</label>
         <select name="model" disabled>
           <option value="">Choisir le modèle</option>
         </select>
       </div>
-      <div class="col-md">
-        <label for="fuel">Choisir le carburant</label>
+      <div class="col-md-4">
+        <label for="fuel">Choisir le carburant :</label>
         <select name="fuel">
           <option value="">Choisir le carburant</option>
         </select>
       </div>
-      <div class="col-md">
-        <label for="kilometer">Kilomètrage</label>
-        <input type="range" name="kilometer" id="">
-      </div>
-      <div class="col-md">
+      
+      <div class="col-md-4">
         <div ngbDropdown class="">
           <button class="btn" id="dropdownBasic5" ngbDropdownToggle>
             Localisation
@@ -45,20 +58,29 @@
         </div>
       </div>
       
-      <div class="col-md">
+      <div class="col-md-4">
         <div ngbDropdown class="">
-          <button class="btn" id="dropdownBasic7" ngbDropdownToggle>Prix</button>
-          <div ngbDropdownMenu>
-            <button ngbDropdownItem>Action - 1</button>
-            <button ngbDropdownItem>Another Action</button>
-            <button ngbDropdownItem>Something else is here</button>
-          </div>
+          <label for="price">Prix</label>
+          <ngx-slider name="price" [(value)]="minValuePrice" [(highValue)]="maxValuePrice" [options]="optionsPrice"></ngx-slider>
         </div>
       </div>
-      <div class="col-md">
-        <ngx-slider [(value)]="minValueKm" [(highValue)]="maxValueKm" [options]="optionsKm"></ngx-slider>
-        <ngx-slider [(value)]="minValuePrice" [(highValue)]="maxValuePrice" [options]="optionsPrice"></ngx-slider>
+      <div class="col-md-4">
+        <label for="kilometers">Kilomètres</label>
+        <ngx-slider name="kilometers" [(value)]="valueKm" [options]="optionsKm"></ngx-slider>
       </div>
+      <!-- 
+      <div class="col-md">
+        pour la date voir : https://material.angular.io/components/datepicker/overview
+      </div>
+      
+      <div class="col-md">
+        pour voir une refonte du menu avec dialog 
+        https://material.angular.io/components/dialog/examples
+        et expansion Panel 
+        https://material.angular.io/components/expansion/overview 
+      </div>
+
+      -->
     </div>
     <div class="row">
       <div class="col-md">

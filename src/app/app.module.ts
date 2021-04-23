@@ -30,7 +30,9 @@ import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-pag
 import { SocialNetworksComponent } from './views/social-networks/social-networks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,10 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     BrowserAnimationsModule,    
     MatCardModule,
     NgxSliderModule,
-    HttpClientModule     
+    HttpClientModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatSelectModule  
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers

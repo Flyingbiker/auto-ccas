@@ -1,22 +1,24 @@
 <div class="container">
     <h1>Votre réseau de vente de voitures d’occasion par des 
         garagistes professionnels</h1>
-        <app-search-bar></app-search-bar>
-        <div class="row">
-            <app-card-car class="col-md-4" *ngFor="let annonce of annoncesArray"
-                [annonce]="annonce"></app-card-car>   
-        </div>
-        <nav aria-label="Page navigation example">
-            <ngb-pagination 
-                [collectionSize]="collectionSize" 
-                (pageChange)="loadPageByNumber($event)"
-                [(page)]="page" 
-                [maxSize]="8" 
-                [pageSize]="12" 
-                [rotate]="true"
-                [boundaryLinks]="true"
-                class="d-flex justify-content-center">
-            </ngb-pagination>
-            <pre>Current page: {{page}}</pre>
-        </nav>
+    <app-search-bar></app-search-bar>
+    <div class="row" *ngIf="annoncesArray.length !== 0; else elseBlock">
+        <app-card-car class="col-md-4" *ngFor="let annonce of annoncesArray"
+            [annonce]="annonce"></app-card-car>   
+    </div>
+    <ng-template #elseBlock>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+    <nav aria-label="Page navigation example">
+        <ngb-pagination 
+            [collectionSize]="collectionSize" 
+            (pageChange)="loadPageByNumber($event)"
+            [(page)]="page" 
+            [maxSize]="8" 
+            [pageSize]="12" 
+            [rotate]="true"
+            [boundaryLinks]="true"
+            class="d-flex justify-content-center">
+        </ngb-pagination>
+    </nav>
 </div>

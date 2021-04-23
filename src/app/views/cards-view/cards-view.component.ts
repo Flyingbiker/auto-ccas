@@ -47,6 +47,8 @@ export class CardsViewComponent implements OnInit {
         }
       }      
     );
+    console.log(this.annoncesArray);
+    
   }
 
   //faire methode pour loadPageByNumber
