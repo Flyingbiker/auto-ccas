@@ -26,7 +26,7 @@
             <mat-option 
               *ngFor="let option of brandsArray"
               [value]="option.brand" 
-              
+              (click)="onSelectBrand(option)"
               >{{ option.brand | titlecase }}
             </mat-option>
           </mat-select>
