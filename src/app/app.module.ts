@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FourOFourPageComponent } from './views/four-o-four-page/four-o-four-page.component';
 import { SocialNetworksComponent } from './views/social-networks/social-networks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     BrowserAnimationsModule,    
     MatCardModule,
+    NgxSliderModule,
     HttpClientModule     
   ],
   providers: [

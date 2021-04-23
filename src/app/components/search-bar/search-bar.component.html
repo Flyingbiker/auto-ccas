@@ -44,18 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md">
-        <div ngbDropdown class="">
-          <button class="btn" id="dropdownBasic6" ngbDropdownToggle>
-            Kilomètres
-          </button>
-          <div ngbDropdownMenu>
-            <button ngbDropdownItem>Action - 1</button>
-            <button ngbDropdownItem>Another Action</button>
-            <button ngbDropdownItem>Something else is here</button>
-          </div>
-        </div>
-      </div>
+      
       <div class="col-md">
         <div ngbDropdown class="">
           <button class="btn" id="dropdownBasic7" ngbDropdownToggle>Prix</button>
@@ -65,6 +54,10 @@
             <button ngbDropdownItem>Something else is here</button>
           </div>
         </div>
+      </div>
+      <div class="col-md">
+        <ngx-slider [(value)]="minValueKm" [(highValue)]="maxValueKm" [options]="optionsKm"></ngx-slider>
+        <ngx-slider [(value)]="minValuePrice" [(highValue)]="maxValuePrice" [options]="optionsPrice"></ngx-slider>
       </div>
     </div>
     <div class="row">

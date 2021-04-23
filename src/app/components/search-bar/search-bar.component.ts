@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/interfaces/brand';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { SearchBarService } from 'src/app/services/search-bar/search-bar.service';
+import { Options, LabelType } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,6 +14,44 @@ export class SearchBarComponent implements OnInit  {
   public brandsArray : Array<Brand> = [];
 
   public totalAnnonces : number = 0;
+
+  //pour ngx-slider Km
+  minValueKm: number = 0;
+  maxValueKm: number = 150000;
+  optionsKm: Options = {
+    floor: 0,
+    ceil: 200000,
+    step:1000,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Km min: </b> ' + value + 'km' ;
+        case LabelType.High:
+          return '<b>Km max: </b> ' + value + 'km';
+        default:
+          return  value + 'km';
+      }
+    }
+  };
+
+  //pour ngx-slider Price
+  minValuePrice: number = 1000;
+  maxValuePrice: number = 50000;
+  optionsPrice: Options = {
+    floor: 0,
+    ceil: 100000,
+    step:500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Prix min:</b> ' + value  + '€';
+        case LabelType.High:
+          return '<b>Prix max:</b> ' + value  + '€';
+        default:
+          return value + '€';
+      }
+    }
+  };
 
   constructor(private searchBarService : SearchBarService,
               private annonceService : AnnonceService) { }

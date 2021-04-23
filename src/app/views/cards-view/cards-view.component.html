@@ -7,16 +7,16 @@
                 [annonce]="annonce"></app-card-car>   
         </div>
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center flex-wrap">
-                <li class="page-item">
-                    <a class="page-link" (click)="loadPreviousPage()">Previous</a>
-                </li>
-                <li class="page-item" *ngFor="let page of pages">
-                    <a class="page-link" (click)="loadPageByNumber(page)">{{page}} </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" (click)="loadNextPage()">Next</a>
-                </li>
-            </ul>
+            <ngb-pagination 
+                [collectionSize]="collectionSize" 
+                (pageChange)="loadPageByNumber($event)"
+                [(page)]="page" 
+                [maxSize]="8" 
+                [pageSize]="12" 
+                [rotate]="true"
+                [boundaryLinks]="true"
+                class="d-flex justify-content-center">
+            </ngb-pagination>
+            <pre>Current page: {{page}}</pre>
         </nav>
 </div>

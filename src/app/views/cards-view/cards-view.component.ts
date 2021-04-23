@@ -16,9 +16,12 @@ export class CardsViewComponent implements OnInit {
 
   public prevLink : string |null = null ;
   public nextLink : string |null = null ;
-  public nextlastLink : string |null = null ;
+  public lastLink : string |null = null ;
   public actualPage : number = 0;
-  
+ 
+  public collectionSize : number = 100;
+
+  public page = 1;
 
   constructor(private annonceService: AnnonceService) {  }
 
@@ -26,6 +29,7 @@ export class CardsViewComponent implements OnInit {
     this.annonceService.getAnnoncesByPage().subscribe(
       (response) => {
         this.annoncesArray = response.data;
+        this.collectionSize = response.totalItems;
 
         if ( response.views.lastPage === undefined){
 
@@ -35,8 +39,7 @@ export class CardsViewComponent implements OnInit {
           
           const matches = string.match(regex);
           if (matches !== null){
-            console.log(matches);
-            for (let i=1; i < parseInt(matches[1]) ; i++){
+            for (let i=1; i <= parseInt(matches[1]) ; i++){
               this.pages.push(i);
             }
             // this.pages = parseInt(matches[1]);
@@ -46,16 +49,20 @@ export class CardsViewComponent implements OnInit {
     );
   }
 
-  //faire methode pour loadNextPage
-  public loadNextPage() : void {
-    this.annonceService.getAnnoncesByPage()
-  }
-  //faire methode pour loadPreviousPage
-  public loadPreviousPage() :void {
-    
-  }
   //faire methode pour loadPageByNumber
-  //faire methode pour loadPage
+  public loadPageByNumber(page : number ) :void {
+    page -= 1;
+    if (page !== this.page){
+      this.actualPage = page;
+      this.page = page;
+      this.annonceService.getAnnoncesByPage(page).subscribe(
+        (response) => {
+          this.annoncesArray = response.data;
+          this.collectionSize = response.totalItems;
+        }
+      )
+    }
+  }
 
 
 }
