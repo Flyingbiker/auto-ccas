@@ -33,6 +33,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatSelectModule  
+    MatSelectModule ,
+    ReactiveFormsModule,
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers

@@ -9,10 +9,12 @@ export interface Annonce{
         lastPage : string ;
     };
     stats: {
-        minKm: number,
-        maxKm: number,
-        minYear: number,
-        maxYear: number,
+        minKm: string,
+        maxKm: string,
+        minYear: string,
+        maxYear: string,
+        minPrice: string,
+        maxPrice: string,
     }
     data : Array<Car>;
 }

@@ -4,20 +4,8 @@
     <span> {{ totalAnnonces }} </span>
     voitures correspondent à vos critères
   </h2>
-  <form action="" method="get">
+  <form [formGroup]="searchbarForm">
     <div class="row">
-    <!-- Le select natif d'HTML
-      <div class="col-md-4">
-        <label for="brand">Choisir la marque :</label>
-        <select name="brand">
-          <option value="">Choisir la marque</option>
-          <option *ngFor="let brand of brandsArray"
-            value="{{ brand?.brand }}"> 
-            {{ brand?.brand | titlecase  }}
-          </option>
-        </select>      
-      </div>
-    -->
       <div class="col-md-4">
         <mat-form-field appearance="fill">
           <mat-label>Choisir la marque :</mat-label>
@@ -61,12 +49,25 @@
       <div class="col-md-4">
         <div ngbDropdown class="">
           <label for="price">Prix</label>
-          <ngx-slider name="price" [(value)]="minValuePrice" [(highValue)]="maxValuePrice" [options]="optionsPrice"></ngx-slider>
+          <ngx-slider name="price" 
+            formControlName="price"  
+            [options]="optionsPrice">
+          </ngx-slider>
         </div>
       </div>
       <div class="col-md-4">
         <label for="kilometers">Kilomètres</label>
-        <ngx-slider name="kilometers" [(value)]="valueKm" [options]="optionsKm"></ngx-slider>
+        <ngx-slider name="kilometers" 
+          formControlName="kilometers"
+          [options]="optionsKm">
+        </ngx-slider>
+      </div>
+      <div class="col-md-4">
+        <label for="kilometers">Année mise en circulation</label>
+        <ngx-slider name="year" 
+          formControlName="year"
+          [options]="optionsYear">
+        </ngx-slider>
       </div>
       <!-- 
       <div class="col-md">
