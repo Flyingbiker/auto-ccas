@@ -9,8 +9,10 @@
       <div class="col-md-4">
         <mat-form-field appearance="fill">
           <mat-label>Choisir la marque :</mat-label>
-          <mat-select [(value)]="selectedBrand" required>
-            <mat-option>Choisir la marque</mat-option>
+          <mat-select [(value)]="selectedBrand">
+            <!--
+              <mat-option>Choisir la marque</mat-option>
+            -->
             <mat-option 
               *ngFor="let option of brandsArray"
               [value]="option.brand" 
@@ -21,10 +23,17 @@
         </mat-form-field>
       </div>
       <div class="col-md-4">
-        <label for="model">Choisir le modèle :</label>
-        <select name="model" disabled>
-          <option value="">Choisir le modèle</option>
-        </select>
+        <mat-form-field appearance="fill">
+          <mat-label>Choisir le modèle :</mat-label>
+          <mat-select [(value)]="selectedModel" [disabled]="!isBrandSelected">
+            <mat-option 
+              *ngFor="let model of modelsArray"
+              [value]="model.name" 
+              (click)="onSelectModel(model)"
+              >{{ model.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>       
       </div>
       <div class="col-md-4">
         <label for="fuel">Choisir le carburant :</label>

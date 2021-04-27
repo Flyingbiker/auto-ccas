@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/interfaces/brand';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { SearchBarService } from 'src/app/services/search-bar/search-bar.service';
-import { Options, LabelType, ChangeContext } from '@angular-slider/ngx-slider';
+import { Options, LabelType } from '@angular-slider/ngx-slider';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Subject } from 'rxjs';
-import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { Model } from 'src/app/interfaces/model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
@@ -16,8 +16,12 @@ export class SearchBarComponent implements OnInit  {
 
   public brandsArray : Array<Brand> = [];
   public totalAnnonces : number = 0;
-  
-  public changeContextPrice : ChangeContext;
+
+  public selectedBrand = this.brandsArray[0]?.brand;  
+  public isBrandSelected : Boolean = false;
+
+  public modelsArray : Array<Model> = [];
+  public selectedModel = this.modelsArray[0]?.name;
 
   //pour ngx-slider Km
   public minKm: number = 1000;
@@ -78,26 +82,27 @@ export class SearchBarComponent implements OnInit  {
   };
 
   searchbarForm :FormGroup = new FormGroup({
-    brandControl : new FormControl('', Validators.required),
+    brandControl : new FormControl(''),
     year : new FormControl([2000, new Date().getFullYear()]),
     price : new FormControl([0,100000]),
     kilometers : new FormControl([0,200000]),
   })
-  selectedBrand = this.brandsArray[0]?.brand;
 
+  private searchBarServiceSubscription: Subscription;
+  private annonceServiceSubscription: Subscription;
+  
   constructor(private searchBarService : SearchBarService,
               private annonceService : AnnonceService) { }
 
   ngOnInit(): void {
 
-    this.searchBarService.getAllBrands().subscribe(
+    this.searchBarServiceSubscription = this.searchBarService.getAllBrands().subscribe(
       (response) => {
         this.brandsArray = response;
       }
     );    
-    this.annonceService.getAnnoncesByPage().subscribe(
+    this.annonceServiceSubscription = this.annonceService.getAnnoncesByPage().subscribe(
       (response) => {
-        console.log(response.stats[0].maxKm, response.stats.minPrice);
         console.log( response.stats.minYear);
         
         this.totalAnnonces = response.totalItems;
@@ -111,9 +116,26 @@ export class SearchBarComponent implements OnInit  {
     
   }
 
-  public onSelectBrand(value : Brand){
-    console.log("marque sélectionnée " + value.brand);
-    //faire l'appel à l'API pour récupérer les moodèles
+  public onSelectBrand(brand : Brand){
+    console.log("marque sélectionnée " + brand.brand);
+    this.isBrandSelected = true;
+    this.annonceService.getModelByBrand(brand).subscribe(
+      (response) => {
+        this.modelsArray = response;        
+      }
+    );    
   }
 
+  public onSelectModel(model : Model){
+    //action quand choix du modèle
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    
+    //destroy les subscribes
+    this.searchBarServiceSubscription.unsubscribe();
+    this.annonceServiceSubscription.unsubscribe();
+  }
 }
