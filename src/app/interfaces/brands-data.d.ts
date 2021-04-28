@@ -1,5 +1,11 @@
-import { Brand } from './brand.d';
-
 export interface BrandData {
-    data : Brand;
+    data : Array<{
+        id : number;
+        brand: string;
+        country : {
+            id:number;
+            country: string;
+        };
+        linkCarlogo : string;          
+    }>;
 }

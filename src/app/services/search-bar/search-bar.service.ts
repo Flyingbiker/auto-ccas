@@ -9,21 +9,22 @@ import { BrandData } from 'src/app/interfaces/brands-data';
 })
 export class SearchBarService {
 
-  private brandsArray : Array<Brand> = [];
-  public brandsSubject = new Subject<Array<Brand>>();
+  private brandsArray : BrandData | null = null;
+  public brandsSubject = new Subject<BrandData>();
 
   constructor(private httpClient : HttpClient) { }
 
   public emitBrandsSubject(){
-    this.brandsSubject.next(this.brandsArray.slice());
+    this.brandsSubject.next(this.brandsArray);
   }
 
-  public getAllBrands() : Observable<Array<Brand>> {
+  public getAllBrands() : Observable<BrandData> {
     this.httpClient.get<BrandData>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/brands')
       .subscribe(
         (response) => {
-          // console.log(response.data);
-          this.brandsArray = response.data;
+          // console.log(response);
+          
+          this.brandsArray = response;
           this.emitBrandsSubject();
         }, 
         (error) => {

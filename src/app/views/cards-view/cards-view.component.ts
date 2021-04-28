@@ -47,7 +47,6 @@ export class CardsViewComponent implements OnInit {
         }
       }      
     );
-    console.log(this.annoncesArray);
     
   }
 
@@ -59,6 +58,8 @@ export class CardsViewComponent implements OnInit {
       this.page = page;
       this.annonceService.getAnnoncesByPage(page).subscribe(
         (response) => {
+          console.log(response.data);
+          
           this.annoncesArray = response.data;
           this.collectionSize = response.totalItems;
         }

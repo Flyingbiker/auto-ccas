@@ -1,11 +1,14 @@
 import { Model } from './model.d';
 
 export interface Brand {
-    id : number;
-    brand: string;
-    country : {
-        country: string;
-    };
-    linkCarlogo : string;  
-    models:Array<Model>;
+    data: {
+        id : number;
+        brand: string;
+        country : {
+            id:number;
+            country: string;
+        };
+        linkCarlogo : string;  
+        models:Array<Model>;
+    }
 }

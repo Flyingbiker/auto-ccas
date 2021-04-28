@@ -50,7 +50,7 @@ export class AnnonceService {
   }
 
   public getAnnoncesByBrand(brand : Brand) : Observable<Annonce> {
-    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars?brand='+brand.id)
+    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars?brand='+brand.data.id)
       .subscribe(
         (response) => {
           this.annonces = response;
@@ -67,11 +67,12 @@ export class AnnonceService {
     return this.annoncesSubject
   }
 
-  public getModelByBrand(brand : Brand) : Observable<Array<Model>> {
-    if (brand !== null){
-      this.httpClient.get<BrandData>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/brands/'+brand.id)
+  public getModelByBrand(idBrand : number) : Observable<Array<Model>> {
+    if (idBrand !== null){
+      this.httpClient.get<Brand>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/brands/'+idBrand)
         .subscribe(
           (response) => {
+            
             this.modelsArray = response.data.models;
             
             this.emitModelsSubject();

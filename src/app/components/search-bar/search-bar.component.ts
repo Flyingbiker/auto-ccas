@@ -1,11 +1,12 @@
+import { FuelService } from './../../services/fuel/fuel.service';
 import { Component, OnInit } from '@angular/core';
-import { Brand } from 'src/app/interfaces/brand';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { SearchBarService } from 'src/app/services/search-bar/search-bar.service';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Model } from 'src/app/interfaces/model';
 import { Subscription } from 'rxjs';
+import { BrandData } from 'src/app/interfaces/brands-data';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,10 +15,10 @@ import { Subscription } from 'rxjs';
 })
 export class SearchBarComponent implements OnInit  {
 
-  public brandsArray : Array<Brand> = [];
+  public brandsArray : BrandData | null = null;
   public totalAnnonces : number = 0;
 
-  public selectedBrand = this.brandsArray[0]?.brand;  
+  public selectedBrand = this.brandsArray?.data[0].brand;  
   public isBrandSelected : Boolean = false;
 
   public modelsArray : Array<Model> = [];
@@ -29,7 +30,6 @@ export class SearchBarComponent implements OnInit  {
   optionsKm: Options = {
     floor: 0,
     ceil: 999999,
-    step:1,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -47,7 +47,7 @@ export class SearchBarComponent implements OnInit  {
     // public minPrice: number = 1000;
     // public maxPrice: number = 100000;
   optionsPrice: Options = {
-    floor: 0,
+    floor: 50,
     ceil: 100000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
@@ -92,34 +92,36 @@ export class SearchBarComponent implements OnInit  {
   private annonceServiceSubscription: Subscription;
   
   constructor(private searchBarService : SearchBarService,
-              private annonceService : AnnonceService) { }
+              private annonceService : AnnonceService,
+              private fuelService : FuelService) { }
 
   ngOnInit(): void {
 
     this.searchBarServiceSubscription = this.searchBarService.getAllBrands().subscribe(
       (response) => {
+        console.log(response);
+        
         this.brandsArray = response;
       }
     );    
     this.annonceServiceSubscription = this.annonceService.getAnnoncesByPage().subscribe(
       (response) => {
-        console.log( response.stats.minYear);
-        
+               
         this.totalAnnonces = response.totalItems;
         
         this.searchbarForm.reset({year: [response.stats[0].minYear,response.stats[0].maxYear]})
         this.searchbarForm.reset({price: [response.stats[0].minPrice,response.stats[0].maxPrice]})
         this.searchbarForm.reset({kilometers: [response.stats[0].minKm,response.stats[0].maxKm]})
       }
-
     ) ;
+    //récupérer la liste des carburants
     
   }
 
-  public onSelectBrand(brand : Brand){
-    console.log("marque sélectionnée " + brand.brand);
+  public onSelectBrand(idBrand : number){
+    console.log("ID marque sélectionnée " + idBrand);
     this.isBrandSelected = true;
-    this.annonceService.getModelByBrand(brand).subscribe(
+    this.annonceService.getModelByBrand(idBrand).subscribe(
       (response) => {
         this.modelsArray = response;        
       }
