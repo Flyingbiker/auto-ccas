@@ -19,7 +19,7 @@ export class SearchBarService {
   }
 
   public getAllBrands() : Observable<BrandData> {
-    this.httpClient.get<BrandData>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/brands')
+    this.httpClient.get<BrandData>('http://api.aymeric-bc.go.yo.fr/index.php/api/brands')
       .subscribe(
         (response) => {
           // console.log(response);

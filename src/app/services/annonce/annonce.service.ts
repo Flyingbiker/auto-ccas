@@ -32,7 +32,7 @@ export class AnnonceService {
   }
 
   public getAnnoncesByPage(page : number = 0) : Observable<Annonce> {
-    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars?page='+page)
+    this.httpClient.get<Annonce>('http://api.aymeric-bc.go.yo.fr/index.php/api/cars?page='+page)
       .subscribe(
         (response) => {
           this.annonces = response;
@@ -50,7 +50,7 @@ export class AnnonceService {
   }
 
   public getAnnoncesByBrand(brand : Brand) : Observable<Annonce> {
-    this.httpClient.get<Annonce>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/cars?brand='+brand.data.id)
+    this.httpClient.get<Annonce>('http://api.aymeric-bc.go.yo.fr/index.php/api/cars?brand='+brand.data.id)
       .subscribe(
         (response) => {
           this.annonces = response;
@@ -69,7 +69,7 @@ export class AnnonceService {
 
   public getModelByBrand(idBrand : number) : Observable<Array<Model>> {
     if (idBrand !== null){
-      this.httpClient.get<Brand>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/brands/'+idBrand)
+      this.httpClient.get<Brand>('http://api.aymeric-bc.go.yo.fr/index.php/api/brands/'+idBrand)
         .subscribe(
           (response) => {
             

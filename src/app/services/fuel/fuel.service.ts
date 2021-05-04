@@ -19,7 +19,7 @@ export class FuelService {
   constructor(private httpClient : HttpClient) { }
 
   public getFuelsType(): Observable<Array<Fuel>>{
-    this.httpClient.get<FuelData>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/fuels')
+    this.httpClient.get<FuelData>('http://api.aymeric-bc.go.yo.fr/index.php/api/fuels')
       .subscribe(
         (response) => {
           console.log(response[0].data);
