@@ -7,6 +7,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Model } from 'src/app/interfaces/model';
 import { Subscription } from 'rxjs';
 import { BrandData } from 'src/app/interfaces/brands-data';
+import { Fuel } from 'src/app/interfaces/fuel';
 
 @Component({
   selector: 'app-search-bar',
@@ -23,6 +24,8 @@ export class SearchBarComponent implements OnInit  {
 
   public modelsArray : Array<Model> = [];
   public selectedModel = this.modelsArray[0]?.name;
+
+  public fuelsArray : Array<Fuel> = [];
 
   //pour ngx-slider Km
   public minKm: number = 1000;
@@ -90,6 +93,7 @@ export class SearchBarComponent implements OnInit  {
 
   private searchBarServiceSubscription: Subscription;
   private annonceServiceSubscription: Subscription;
+  private getFuelsTypeSubscription : Subscription;
   
   constructor(private searchBarService : SearchBarService,
               private annonceService : AnnonceService,
@@ -114,12 +118,18 @@ export class SearchBarComponent implements OnInit  {
         this.searchbarForm.reset({kilometers: [response.stats[0].minKm,response.stats[0].maxKm]})
       }
     ) ;
+
     //récupérer la liste des carburants
+     this.getFuelsTypeSubscription = this.fuelService.getFuelsType().subscribe(
+       (response) => {
+         this.fuelsArray = response
+       }
+     )
     
   }
 
   public onSelectBrand(idBrand : number){
-    console.log("ID marque sélectionnée " + idBrand);
+    // console.log("ID marque sélectionnée " + idBrand);
     this.isBrandSelected = true;
     this.annonceService.getModelByBrand(idBrand).subscribe(
       (response) => {
@@ -132,6 +142,14 @@ export class SearchBarComponent implements OnInit  {
     //action quand choix du modèle
   }
 
+  public onSubmitSearchForm(){
+    console.log("envoi du formulaire, Marque: ", this.selectedBrand);    
+  }
+
+  public resetSearchForm(){
+    //pour remettre à 0 les données de la barre de recherche
+  }
+
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
@@ -139,5 +157,6 @@ export class SearchBarComponent implements OnInit  {
     //destroy les subscribes
     this.searchBarServiceSubscription.unsubscribe();
     this.annonceServiceSubscription.unsubscribe();
+    this.getFuelsTypeSubscription.unsubscribe();
   }
 }

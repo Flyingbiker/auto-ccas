@@ -4,7 +4,7 @@
     <span> {{ totalAnnonces }} </span>
     voitures correspondent à vos critères
   </h2>
-  <form [formGroup]="searchbarForm">
+  <form [formGroup]="searchbarForm" (ngSubmit)="onSubmitSearchForm()">
     <div class="row">
       <div class="col-md-4">
         <mat-form-field appearance="fill">
@@ -95,6 +95,7 @@
     <div class="row">
       <div class="col-md">
         soumettre
+        <button type="submit" [disabled]="profileForm.invalid">Rechercher</button>
       </div>
       <div class="col-md">
         réinitialiser
