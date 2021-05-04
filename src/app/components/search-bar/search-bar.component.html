@@ -9,15 +9,15 @@
       <div class="col-md-4">
         <mat-form-field appearance="fill">
           <mat-label>Choisir la marque :</mat-label>
-          <mat-select [(value)]="selectedBrand">
+          <mat-select [(value)]="selectedBrand" formControlName="brand">
             <!--
               <mat-option>Choisir la marque</mat-option>
             -->
             <mat-option 
-              *ngFor="let option of brandsArray?.data"
-              [value]="option.brand" 
-              (click)="onSelectBrand(option.id)"
-              >{{ option.brand | titlecase }}
+              *ngFor="let brand of brandsArray?.data"
+              [value]="brand.id" 
+              (click)="onSelectBrand(brand.id)"
+              >{{ brand.brand | titlecase }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -25,10 +25,10 @@
       <div class="col-md-4">
         <mat-form-field appearance="fill">
           <mat-label>Choisir le modèle :</mat-label>
-          <mat-select [(value)]="selectedModel" [disabled]="!isBrandSelected">
+          <mat-select [(value)]="selectedModel" formControlName="model">
             <mat-option 
               *ngFor="let model of modelsArray"
-              [value]="model.name" 
+              [value]="model.id" 
               (click)="onSelectModel(model)"
               >{{ model.name }}
             </mat-option>
@@ -36,11 +36,19 @@
         </mat-form-field>       
       </div>
       <div class="col-md-4">
-        <label for="fuel">Choisir le carburant :</label>
-        <select name="fuel">
-          <option value="">Choisir le carburant</option>
-        </select>
+        <mat-form-field appearance="fill">
+          <mat-label>Choisir le carburant :</mat-label>
+          <mat-select [(value)]="selectedFuel" formControlName="fuel">
+            <mat-option 
+              *ngFor="let fuel of fuelsArray"
+              [value]="fuel.id" 
+              (click)="onSelectFuel(fuel)"
+              >{{ fuel.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>       
       </div>
+
       
       <div class="col-md-4">
         <div ngbDropdown class="">
@@ -94,12 +102,8 @@
     </div>
     <div class="row">
       <div class="col-md">
-        soumettre
-        <button type="submit" [disabled]="searchbarForm.valid">Rechercher</button>
-      </div>
-      <div class="col-md">
-        réinitialiser
-      </div>
+        <button class="example-button-row" mat-raised-button color="primary">Soumettre</button>
+      </div>      
     </div>
   </form>
 </div>

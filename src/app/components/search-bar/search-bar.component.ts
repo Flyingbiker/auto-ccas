@@ -24,8 +24,9 @@ export class SearchBarComponent implements OnInit  {
 
   public modelsArray : Array<Model> = [];
   public selectedModel = this.modelsArray[0]?.name;
-
+  
   public fuelsArray : Array<Fuel> = [];
+  public selectedFuel = this.fuelsArray[0]?.name;
 
   //pour ngx-slider Km
   public minKm: number = 1000;
@@ -84,8 +85,10 @@ export class SearchBarComponent implements OnInit  {
     }
   };
 
-  searchbarForm :FormGroup = new FormGroup({
-    brandControl : new FormControl(''),
+  searchbarForm : FormGroup = new FormGroup({
+    brand : new FormControl(''),
+    model : new FormControl({value:'', disabled: true}),
+    fuel : new FormControl(''),
     year : new FormControl([2000, new Date().getFullYear()]),
     price : new FormControl([0,100000]),
     kilometers : new FormControl([0,200000]),
@@ -103,7 +106,7 @@ export class SearchBarComponent implements OnInit  {
 
     this.searchBarServiceSubscription = this.searchBarService.getAllBrands().subscribe(
       (response) => {
-        console.log(response);
+        // console.log(response);
         
         this.brandsArray = response;
       }
@@ -133,7 +136,10 @@ export class SearchBarComponent implements OnInit  {
     this.isBrandSelected = true;
     this.annonceService.getModelByBrand(idBrand).subscribe(
       (response) => {
-        this.modelsArray = response;        
+        this.modelsArray = response;  
+
+        //pour réactiver le champs modèle
+        this.searchbarForm.controls.model.enable();
       }
     );    
   }
@@ -142,13 +148,44 @@ export class SearchBarComponent implements OnInit  {
     //action quand choix du modèle
   }
 
+  public onSelectFuel(fuel : Fuel){
+    //action quand choix du carburant
+  }
+
   public onSubmitSearchForm(){
-    console.log("envoi du formulaire, Marque: ", this.selectedBrand);    
+    console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.brand);    
+    console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.model);    
+    const url = 'http://api.aymeric-bc.go.yo.fr/index.php/api/cars';
+    let query = url;
+    
+    console.log("query : " + query);    
+    if (query === url){
+      query += '?';
+    }
+    console.log("query : " + query);    
+
+    if (this.searchbarForm.value.brand !== null){
+      query += '&brand=' + this.searchbarForm.value.brand;
+      if (this.searchbarForm.value.model !== null) {
+        query += "&model=" + this.searchbarForm.value.model;
+      }
+    }
+    if (this.searchbarForm.value.fuel !== null) {
+      query += "&fuel=" + this.searchbarForm.value.fuel;
+    }
+    
+    console.log("envoi requête : " + query);  
+    this.annonceService.getAnnoncesByQuery(query).subscribe(
+      (response) => {
+        
+      }
+    );    
   }
 
   public resetSearchForm(){
     //pour remettre à 0 les données de la barre de recherche
   }
+
 
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.

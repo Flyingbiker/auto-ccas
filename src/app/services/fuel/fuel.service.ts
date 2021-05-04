@@ -22,8 +22,7 @@ export class FuelService {
     this.httpClient.get<FuelData>('http://api.aymeric-bc.go.yo.fr/index.php/api/fuels')
       .subscribe(
         (response) => {
-          console.log(response[0].data);
-          this.fuelsArray = response[0].data;
+          this.fuelsArray = response.data;
           this.emitFuelsSubject();
         }
       )

@@ -12,8 +12,8 @@ import { BrandData } from 'src/app/interfaces/brands-data';
 })
 export class AnnonceService {
 
-  private carsArray : Array<Car> = [];
-  private annonces : Annonce | null = null;
+  public carsArray : Array<Car> = [];
+  public annonces : Annonce | null = null;
   public annoncesSubject = new Subject<Annonce>();
 
   public modelsArray : Array<Model> = [];
@@ -83,6 +83,22 @@ export class AnnonceService {
         }
       return this.modelsSubject;
     }
+  }
+
+  public getAnnoncesByQuery(queryApi : string): Observable<Annonce>{
+    this.httpClient.get<Annonce>(queryApi)
+      .subscribe(
+        (response) => {
+          this.annonces = response;
+          this.carsArray =response.data;
+
+          this.totalAnnonces = this.carsArray.length;
+
+          this.emitAnnoncesSubject();
+        }
+        
+      )
+    return this.annoncesSubject;
   }
 
 }
