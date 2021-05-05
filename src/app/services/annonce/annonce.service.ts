@@ -21,6 +21,8 @@ export class AnnonceService {
 
   private totalAnnonces : number | null = null ;
 
+  public carSelected : Car | null = null;
+
   constructor(private httpClient : HttpClient) { }
 
   public emitAnnoncesSubject(){
@@ -99,6 +101,13 @@ export class AnnonceService {
         
       )
     return this.annoncesSubject;
+  }
+
+  /**
+   * register Car details when click detected
+   */
+  public storeCarDetails(car : Car) : Car {
+    return this.carSelected = car;
   }
 
 }

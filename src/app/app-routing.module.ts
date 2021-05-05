@@ -8,6 +8,7 @@ import { CgvViewComponent } from './views/cgv-view/cgv-view.component';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'cookies', component : CookiesViewComponent},
   {path:'mapWebSite', component : MapWebSiteViewComponent},  
   {path:'social-networks', component : SocialNetworksComponent},  
+  {path:'car-details', component : CarDetailsViewComponent},  
   {path:'', component : MainViewComponent},
   {path:'404-page', component : FourOFourPageComponent},
   {path:'**', redirectTo : '404-page'},

@@ -46,10 +46,9 @@ export class SearchBarComponent implements OnInit  {
     }
   };
 
-
   //pour ngx-slider Price
-    // public minPrice: number = 1000;
-    // public maxPrice: number = 100000;
+    public minPrice: number = 1000;
+    public maxPrice: number = 100000;
   optionsPrice: Options = {
     floor: 50,
     ceil: 100000,
@@ -67,8 +66,8 @@ export class SearchBarComponent implements OnInit  {
   
 
   //pour ngx-slider Year
-    // public minYear: number = 2000;
-    // public maxYear: number = new Date().getFullYear();
+    public minYear: number = 2000;
+    public maxYear: number = new Date().getFullYear();
   optionsYear: Options = {
     floor: 2000,
     ceil: new Date().getFullYear(),
@@ -89,9 +88,9 @@ export class SearchBarComponent implements OnInit  {
     brand : new FormControl(''),
     model : new FormControl({value:'', disabled: true}),
     fuel : new FormControl(''),
-    year : new FormControl([2000, new Date().getFullYear()]),
-    price : new FormControl([0,100000]),
     kilometers : new FormControl([0,200000]),
+    year : new FormControl([2000, new Date().getFullYear()]),
+    price : new FormControl([50,100000]),
   })
 
   private searchBarServiceSubscription: Subscription;
@@ -115,10 +114,30 @@ export class SearchBarComponent implements OnInit  {
       (response) => {
                
         this.totalAnnonces = response.totalItems;
+        console.log("response.totalItems :" + response.totalItems);
+
+        if (response.totalItems === 0 ){
+          this.searchbarForm.reset({year: [2020,2020], price: [0,0], kilometers: [0,0]});
+        } else {
+          let string = ''
+          if (this.searchbarForm.value.brand !== undefined){
+            string += 'brand: ' + this.searchbarForm.value.brand + ',' ;
+          }
+          if (this.searchbarForm.value.model !== undefined){
+            string += 'model: ' + this.searchbarForm.value.model + ',' ;
+          }
+          if (this.searchbarForm.value.fuel !== undefined){
+            string += 'fuel: ' + this.searchbarForm.value.fuel + ',' ;
+          }
+          console.log(string);
+          this.searchbarForm.reset({         
+            string,             
+            kilometers: [response.stats[0].minKm,response.stats[0].maxKm], 
+            year: [response.stats[0].minYear,response.stats[0].maxYear],
+            price: [response.stats[0].minPrice,response.stats[0].maxPrice]
+            });          
+        }
         
-        this.searchbarForm.reset({year: [response.stats[0].minYear,response.stats[0].maxYear]})
-        this.searchbarForm.reset({price: [response.stats[0].minPrice,response.stats[0].maxPrice]})
-        this.searchbarForm.reset({kilometers: [response.stats[0].minKm,response.stats[0].maxKm]})
       }
     ) ;
 
@@ -177,7 +196,7 @@ export class SearchBarComponent implements OnInit  {
     console.log("envoi requête : " + query);  
     this.annonceService.getAnnoncesByQuery(query).subscribe(
       (response) => {
-        
+
       }
     );    
   }
