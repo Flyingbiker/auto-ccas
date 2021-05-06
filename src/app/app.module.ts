@@ -35,7 +35,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component'
+import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
+import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CarDetailsViewComponent } from './views/car-details-view/car-details-vi
     ContactUsViewComponent,
     FourOFourPageComponent,
     SocialNetworksComponent,
-    CarDetailsViewComponent,  
+    CarDetailsViewComponent,
+    ModalGalleryComponent,  
     
   ],
   imports: [

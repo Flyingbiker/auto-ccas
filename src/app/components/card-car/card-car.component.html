@@ -1,9 +1,13 @@
 <div class="card">
+    <div class="compare-checkbox">
+        <label for="carSelected">Comparer</label>
+        <input type="checkbox" name="carSelected">
+    </div>
     <img src="{{annonce.pictures[0].pathPicture}}" class="img-fluid" alt="{{annonce.pictures[0].altDescription}}">
     <div class="card-body">
         <div class="d-flex justify-content-between">
             <h5 class="card-title">Marque {{annonce.model.brand.brand}} - modèle: {{annonce.model.name}}</h5>
-            <h5 class="price text-right">Prix : {{annonce.price | currency:"EUR":"symbol"}} </h5>
+            <h5 class="price text-right">Prix : {{annonce.price | number:'3.0-0' }} </h5>
         </div>
         <h6>Motorisation - finition</h6>
         <p class="card-text">{{annonce.description}} </p>
@@ -27,12 +31,6 @@
                 title="Type de carburant">
             <p>{{ annonce.fuel.name | titlecase  }}</p>
         </div>
-<!--    <div>
-            <img src="assets/img/localisation.svg" class="img-fluid" 
-                alt="Localisation du véhicule" >
-            <p>{{annonce.year_of_circulation| date : 'MM/yyyy'}}</p>
-        </div> 
--->
     </div>
     <button class="btn text-white" (click)="storeCarDetails(annonce)">En savoir +</button>
 </div>

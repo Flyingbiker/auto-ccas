@@ -26,3 +26,12 @@ img{
         color: $orange-auto-ccas;
     }
 }
+
+.compare-checkbox{
+    position: absolute;
+    right: 0;
+    background-color: $orange-auto-ccas;
+    border-radius: 0 6px 0 6px;
+    color: #fff;
+    padding: 8px 0 0 10px;
+}
