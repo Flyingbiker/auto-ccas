@@ -2,8 +2,15 @@
     <h1>Votre réseau de vente de voitures d’occasion par des 
         garagistes professionnels</h1>
     <app-search-bar></app-search-bar>
+        <div *ngIf="true" class="selected-cars-button-parent">
+            <a href="#">
+                Voir la compararison des <br>
+                <span>X</span> voitures
+            </a>
+        </div>
     <div class="row" *ngIf="annoncesArray.length !== 0; else elseBlock">
-        <app-card-car class="col-md-4" *ngFor="let annonce of annoncesArray"
+        <app-card-car *ngFor="let annonce of annoncesArray"
+            class="col-md-4" 
             [annonce]="annonce"></app-card-car>   
     </div>
     <ng-template #elseBlock>
