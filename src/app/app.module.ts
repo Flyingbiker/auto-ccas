@@ -36,7 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
-import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component'
+import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component';
+import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.
     FourOFourPageComponent,
     SocialNetworksComponent,
     CarDetailsViewComponent,
-    ModalGalleryComponent,  
+    ModalGalleryComponent,
+    CompareCarsViewComponent,  
     
   ],
   imports: [

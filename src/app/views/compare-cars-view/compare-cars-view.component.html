@@ -1,0 +1,65 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Référence de l'annonce</th>
+      <th scope="col" *ngFor="let carCompared of carsToCompare">{{carCompared.id}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Marque</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.model.brand.brand | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Photo</th>
+      <td *ngFor="let carCompared of carsToCompare" class="">
+        <img src="{{carCompared.pictures[0].pathPicture}}" class="img-fluid img-thumbnail images-compare-table" alt="{{carCompared.pictures[0].altDescription}}"> </td>
+    </tr>
+    <tr>
+      <th scope="row">Modèle</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.model.name | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Prix</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.price | number : "3.0-0"}} €</td>
+    </tr>
+    <tr>
+      <th scope="row"> Catégorie Véhicule</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.carType.carType | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Année de mise en circulation</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.year}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Kilométrage</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.kilometers | number : "3.0-0"}} km</td>
+    </tr>
+    <tr>
+      <th scope="row">Carburant</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.fuel.name | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Motorisation</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.motor | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Boite de vitesses</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.gear.description | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Finition</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.finish | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Couleur</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.color | titlecase}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td *ngFor="let carCompared of carsToCompare">{{carCompared.description}}</td>
+    </tr>
+
+    
+  </tbody>
+</table>

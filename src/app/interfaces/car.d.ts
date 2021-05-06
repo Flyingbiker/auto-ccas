@@ -5,7 +5,7 @@ export interface Car {
     id : number;
     price: number;
     kilometers : number;
-    year : Date;
+    year : number;
     fuel : {
         name: string;
     };
@@ -31,6 +31,6 @@ export interface Car {
     };
     motor : string;
     creationDate : Date;
-    date_sell? : Date;
+    sellDate? : Date;
     pictures : Array<Picture>
 }

@@ -9,6 +9,7 @@ import { MainViewComponent } from './views/main-view/main-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
+import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   {path:'mapWebSite', component : MapWebSiteViewComponent},  
   {path:'social-networks', component : SocialNetworksComponent},  
   {path:'car-details', component : CarDetailsViewComponent},  
+  {path:'car-details', component : CarDetailsViewComponent},  
+  {path:'car-compare', component : CompareCarsViewComponent},  
   {path:'', component : MainViewComponent},
   {path:'404-page', component : FourOFourPageComponent},
   {path:'**', redirectTo : '404-page'},
