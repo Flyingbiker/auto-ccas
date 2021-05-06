@@ -10,29 +10,37 @@
     *ngIf="carDetails !== null; else elseTemplate">
     
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 
                 <img src="{{carDetails.pictures[0].pathPicture}}" class="img-fluid" alt="{{carDetails.pictures[0].altDescription}}">
             </div>
-            <div class="col-md-4 text-center">
-                <h3>
+            <div class="col-md-5 text-center">
+                <h3 class="title-car-details-view">
                     {{ carDetails.model.brand.brand }} - {{ carDetails.model.name }} 
                 </h3>
-                <h4>
+                <h4  class="title-car-details-view">
                     {{ carDetails.motor }} - {{ carDetails.finish }}             
                 </h4>
                 <div class="row">
                     <div class="col-md-4">
-                        {{ carDetails.year }}
-                        image calendrier
+                        <img src="assets/img/calendar-page.svg" 
+                            class="image-icone-card" 
+                            alt="Date mise en ligne de l'annonce"
+                            title="Date mise en ligne de l'annonce">
+                        <p class="text-orange">{{ carDetails.year }}</p>
                     </div>
                     <div class="col-md-4">
-                        {{ carDetails.kilometers }}
-                        image route sinueuse
+                        <img src="assets/img/meandering-road-with-trees-at-sides.svg" 
+                            class="image-icone-card" alt="Année de mise en circulation"
+                            title="Année de mise en circulation">
+                        <p class="text-orange">{{ carDetails.kilometers }}</p>
                     </div>
                     <div class="col-md-4">
-                        {{ carDetails.fuel.name }}
-                        image pompe essence
+                        <img src="assets/img/gasoline-pump.svg" 
+                            class="image-icone-card" 
+                            alt="Type de carburant"
+                            title="Type de carburant">
+                        <p class="text-orange">{{ carDetails.fuel.name | titlecase  }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -60,6 +68,9 @@
                 </div>
                 <div>
                     {{ carDetails.id }}
+                </div>
+                <div>
+                    {{ carDetails.price }}
                 </div>
             </div>
         </div>

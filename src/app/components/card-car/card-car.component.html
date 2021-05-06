@@ -8,24 +8,24 @@
         <h6>Motorisation - finition</h6>
         <p class="card-text">{{annonce.description}} </p>
     </div>
-    <div class="pictogram-bar d-flex justify-content-between container">
-        <div>
-            <img src="assets/img/calendar-page.svg" class="img-fluid" 
-                alt="Date mise en ligne de l'annonce"
-                title="Date mise en ligne de l'annonce">
-            <p *ngIf="annonce.creationDate">{{annonce.creationDate | date : 'dd/MM/yyyy' }}</p>
-        </div>
-        <div>
-            <img src="assets/img/meandering-road-with-trees-at-sides.svg" 
-                class="img-fluid" alt="Année de mise en circulation"
+    <div class="row pictogram-bar d-flex justify-content-between container">
+        <div class="col-md-4">
+            <img src="assets/img/calendar-page.svg" class="image-icone-card" 
+                alt="Année de mise en circulation"
                 title="Année de mise en circulation">
-            <p>{{annonce.year }}</p>
+            <p *ngIf="annonce.creationDate">{{annonce.year | date : 'yyyy' }}</p>
         </div>
-        <div>
-            <img src="assets/img/gasoline-pump.svg" class="img-fluid" 
-                alt="Kilométrage du véhicule"
-                title="Kilométrage du véhicule">
-            <p>{{annonce.kilometers}}</p>
+        <div class="col-md-4">
+            <img src="assets/img/meandering-road-with-trees-at-sides.svg" 
+                class="image-icone-card" alt="Année de mise en circulation"
+                title="Année de mise en circulation">
+            <p>{{annonce.kilometers }}</p>
+        </div>
+        <div class="col-md-4">
+            <img src="assets/img/gasoline-pump.svg" class="image-icone-card" 
+                alt="Type de carburant"
+                title="Type de carburant">
+            <p>{{ annonce.fuel.name | titlecase  }}</p>
         </div>
 <!--    <div>
             <img src="assets/img/localisation.svg" class="img-fluid" 
