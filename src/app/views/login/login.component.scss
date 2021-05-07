@@ -2,12 +2,14 @@ body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-color: #B0BEC5;
-    background-repeat: no-repeat
 }
 
+.container-fluid{
+    background: linear-gradient(180deg, #FBB040 0%, rgba(253, 215, 159, 0.75) 70.83%, rgba(255, 255, 255, 0) 100%), #2D9CDB;
+}
 .card0 {
     box-shadow: 0px 4px 8px 0px #757575;
+    background-color: #fff;
     border-radius: 0px
 }
 

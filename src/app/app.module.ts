@@ -40,7 +40,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
 import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component';
 import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component';
-import { LoginComponent } from './views/login/login.component'
+import { LoginComponent } from './views/login/login.component';
+import { DashboardProComponent } from './views/dashboard-pro/dashboard-pro.component'
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { LoginComponent } from './views/login/login.component'
     CarDetailsViewComponent,
     ModalGalleryComponent,
     CompareCarsViewComponent,
-    LoginComponent,  
+    LoginComponent,
+    DashboardProComponent,  
     
   ],
   imports: [
@@ -82,6 +85,7 @@ import { LoginComponent } from './views/login/login.component'
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers
@@ -89,7 +93,8 @@ import { LoginComponent } from './views/login/login.component'
     GarageService,
     AnnonceService,
     SearchBarService,
-    CompareCarsService
+    CompareCarsService,
+    AuthService
   ],  
   bootstrap: [AppComponent]
 })

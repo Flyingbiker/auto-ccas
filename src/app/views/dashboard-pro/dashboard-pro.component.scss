@@ -1,0 +1,29 @@
+.container-fluid{
+    background: linear-gradient(180deg, #FBB040 0%, rgba(253, 215, 159, 0.75) 70.83%, rgba(255, 255, 255, 0) 100%), #2D9CDB;
+    padding: 50px 0;
+}
+
+.logo-li-dashboard-pro{
+    height: 30px;
+    padding-right: 50px;
+}
+
+.mat-card-image:first-child{
+    margin:0;
+}
+h4{
+    color: #0000008A;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container-fluid{
+    background: linear-gradient(180deg, #FBB040 0%, rgba(253, 215, 159, 0.75) 70.83%, rgba(255, 255, 255, 0) 100%), #2D9CDB;
+    padding: 20px 0;
+    }
+
+    .logo-li-dashboard-pro{
+        height: 20px;
+        padding-right: 30px;
+    }
+}
