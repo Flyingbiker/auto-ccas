@@ -8,13 +8,13 @@
                 <span>X</span> voitures
             </a>
         </div>
-    <div class="row" *ngIf="annoncesArray.length !== 0; else elseBlock">
+    <div class="row" *ngIf="!isPageLoading; else elseBlock">
         <app-card-car *ngFor="let annonce of annoncesArray"
             class="col-md-4" 
             [annonce]="annonce"></app-card-car>   
     </div>
     <ng-template #elseBlock>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        <mat-progress-bar mode="indeterminate" class="progress-bar-loading"></mat-progress-bar>
     </ng-template>
     <nav aria-label="Page navigation example">
         <ngb-pagination 

@@ -1,3 +1,4 @@
+import { CompareCarsService } from './services/compare-cars/compare-cars.service';
 import { MatCardModule } from '@angular/material/card';
 import { GarageService } from './services/garage/garage.service';
 import { UserService } from './services/user/user.service';
@@ -83,7 +84,8 @@ import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars
     UserService,
     GarageService,
     AnnonceService,
-    SearchBarService
+    SearchBarService,
+    CompareCarsService
   ],  
   bootstrap: [AppComponent]
 })

@@ -14,6 +14,8 @@ export class CardsViewComponent implements OnInit {
   public annoncesArray : Array<Car> = []; 
   public pages = [] ;
 
+  public isPageLoading : boolean = true;
+
   public prevLink : string |null = null ;
   public nextLink : string |null = null ;
   public lastLink : string |null = null ;
@@ -26,10 +28,13 @@ export class CardsViewComponent implements OnInit {
   constructor(private annonceService: AnnonceService) {  }
 
   ngOnInit(): void {
+    this.isPageLoading = true;
     this.annonceService.getAnnoncesByPage().subscribe(
       (response) => {
         this.annoncesArray = response.data;
         this.collectionSize = response.totalItems;
+
+        this.isPageLoading = false;
 
         if ( response.views.lastPage === undefined){
 
@@ -50,8 +55,8 @@ export class CardsViewComponent implements OnInit {
     
   }
 
-  //faire methode pour loadPageByNumber
   public loadPageByNumber(page : number ) :void {
+    this.isPageLoading = true;
     page -= 1;
     if (page !== this.page){
       this.actualPage = page;
@@ -62,6 +67,8 @@ export class CardsViewComponent implements OnInit {
           
           this.annoncesArray = response.data;
           this.collectionSize = response.totalItems;
+
+          this.isPageLoading = false;
         }
       )
     }
