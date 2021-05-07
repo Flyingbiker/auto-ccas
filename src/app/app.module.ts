@@ -35,6 +35,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
 import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component';
@@ -78,6 +79,7 @@ import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars
     MatSelectModule ,
     MatButtonModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     NgbCarouselConfig,  // add NgbCarouselConfig to the component providers

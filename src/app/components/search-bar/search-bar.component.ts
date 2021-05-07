@@ -114,7 +114,7 @@ export class SearchBarComponent implements OnInit  {
       (response) => {
                
         this.totalAnnonces = response.totalItems;
-        console.log("response.totalItems :" + response.totalItems);
+        // console.log("response.totalItems :" + response.totalItems);
 
         if (response.totalItems === 0 ){
           this.searchbarForm.reset({year: [2020,2020], price: [0,0], kilometers: [0,0]});
@@ -129,7 +129,7 @@ export class SearchBarComponent implements OnInit  {
           if (this.searchbarForm.value.fuel !== undefined){
             string += 'fuel: ' + this.searchbarForm.value.fuel + ',' ;
           }
-          console.log(string);
+          // console.log(string);
           this.searchbarForm.reset({         
             string,             
             kilometers: [response.stats[0].minKm,response.stats[0].maxKm], 
@@ -172,16 +172,16 @@ export class SearchBarComponent implements OnInit  {
   }
 
   public onSubmitSearchForm(){
-    console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.brand);    
-    console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.model);    
+    // console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.brand);    
+    // console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.model);    
     const url = 'http://api.aymeric-bc.go.yo.fr/index.php/api/cars';
     let query = url;
     
-    console.log("query : " + query);    
+    // console.log("query : " + query);    
     if (query === url){
       query += '?';
     }
-    console.log("query : " + query);    
+    // console.log("query : " + query);    
 
     if (this.searchbarForm.value.brand !== null){
       query += '&brand=' + this.searchbarForm.value.brand;
@@ -193,7 +193,7 @@ export class SearchBarComponent implements OnInit  {
       query += "&fuel=" + this.searchbarForm.value.fuel;
     }
     
-    console.log("envoi requête : " + query);  
+    // console.log("envoi requête : " + query);  
     this.annonceService.getAnnoncesByQuery(query).subscribe(
       (response) => {
 
