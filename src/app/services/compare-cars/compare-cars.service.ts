@@ -43,7 +43,7 @@ export class CompareCarsService {
     return array;
   }
 
-  public deleteAllCarToCompare() : Array<Car> {
+  public deleteAllCarsToCompare() : Array<Car> {
     this.carsToCompare = [];
     this.emitCarsToCompareSubject();
     this.emitArrayLengthSubject();

@@ -1,6 +1,6 @@
 <div class="container-fluid background-linear-gradient">
   <div class="container pt-4 pb-4">
-      <a routerLink="/" (click)="deleteAllCarToCompare()">Retour aux résultats</a>
+      <a routerLink="/" (click)="deleteAllCarsToCompare()">Retour aux résultats</a>
   </div>    
 </div>
 
@@ -9,78 +9,80 @@
     <thead>
       <tr>
         <th scope="col">Référence de l'annonce</th>
-        <th scope="col" *ngFor="let carCompared of carsToCompare" class="align-middle ">
+        <th scope="col" *ngFor="let carCompared of carsToCompare" class="align-middle text-center">
           {{carCompared.id}}
-          <img src="./assets/img/close.svg" alt="retirer cette annonce du tableau des comparaison" class="close-icon text-end">
+          <img src="./assets/img/cancel.svg" alt="retirer cette annonce du tableau des comparaison" 
+            class="close-icon text-end"
+            (click)="deleteCarFromTable(carCompared)">
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">Marque</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.model.brand.brand | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Photo</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle ">
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center">
           <img src="{{carCompared.pictures[0].pathPicture}}" 
             class="img-thumbnail images-compare-table" 
             alt="{{carCompared.pictures[0].altDescription}}"> </td>
       </tr>
       <tr>
         <th scope="row">Modèle</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.model.name | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Prix</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.price | number : "3.0-0"}} €</td>
       </tr>
       <tr>
         <th scope="row"> Catégorie Véhicule</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.carType.carType | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Année de mise en circulation</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
         >{{carCompared.year}}</td>
       </tr>
       <tr>
         <th scope="row">Kilométrage</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
         >{{carCompared.kilometers | number : "3.0-0"}} km</td>
       </tr>
       <tr>
         <th scope="row">Carburant</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.fuel.name | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Motorisation</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.motor | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Boite de vitesses</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.gear.description | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Finition</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.finish | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Couleur</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.color | titlecase}}</td>
       </tr>
       <tr>
         <th scope="row">Description</th>
-        <td *ngFor="let carCompared of carsToCompare" class="align-middle "
+        <td *ngFor="let carCompared of carsToCompare" class="align-middle  text-center"
           >{{carCompared.description}}</td>
       </tr>
   
