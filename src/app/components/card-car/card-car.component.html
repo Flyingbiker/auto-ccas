@@ -1,7 +1,8 @@
 <div class="card">
     <div class="compare-checkbox">
         <label for="carSelected">Comparer</label>
-        <input type="checkbox" name="carSelected">
+        <input type="checkbox" name="carSelected" 
+            [(ngModel)]="checked">
     </div>
     <img src="{{annonce.pictures[0].pathPicture}}" class="img-fluid" alt="{{annonce.pictures[0].altDescription}}">
     <div class="card-body">
