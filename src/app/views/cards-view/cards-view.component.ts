@@ -1,8 +1,10 @@
+import { Subscription } from 'rxjs';
 import { Annonce } from '../../interfaces/annonce';
 import { Car } from '../../interfaces/car';
 import { Component, OnInit } from '@angular/core';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 import { HttpClient } from '@angular/common/http';
+import { CompareCarsService } from 'src/app/services/compare-cars/compare-cars.service';
 
 @Component({
   selector: 'app-cards-view',
@@ -25,7 +27,12 @@ export class CardsViewComponent implements OnInit {
 
   public page = 1;
 
-  constructor(private annonceService: AnnonceService) {  }
+  public numberCarsToCompare : number = 0;
+
+  private compareCarsServiceSubscription : Subscription;
+
+  constructor(private annonceService: AnnonceService,
+              private compareCarsService : CompareCarsService) {  }
 
   ngOnInit(): void {
     this.isPageLoading = true;
@@ -52,7 +59,12 @@ export class CardsViewComponent implements OnInit {
         }
       }      
     );
-    
+
+    this.compareCarsServiceSubscription = this.compareCarsService.arrayLengthSubject.subscribe(
+      (response) => {
+        this.numberCarsToCompare = response
+      }
+    )
   }
 
   public loadPageByNumber(page : number ) :void {
@@ -74,5 +86,16 @@ export class CardsViewComponent implements OnInit {
     }
   }
 
+  public isEnoughCarsToCompare() : boolean {
+    if (this.numberCarsToCompare > 1) {
+      return true;
+    } else {return false;}
+  }
+  
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.compareCarsServiceSubscription.unsubscribe();
+  }
 
 }

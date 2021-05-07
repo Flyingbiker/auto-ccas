@@ -45,32 +45,18 @@ export class CardCarComponent implements OnInit {
     this.carChecked = value;
     if (value) {
       if ( this.compareCarsService.carsToCompare.includes(this.annonce)){
-        console.error("car déja dans tableau alors que pas check" + value);
+        console.error("car déja dans tableau alors que pas check avant " + value);
       } else {
-        this.compareCarsService.carsToCompare.push(this.annonce);
+        this.compareCarsService.addCarFromCompareArray(this.annonce);
         console.log("car mis dans tableau ", this.compareCarsService.carsToCompare);
       }
     } else {
       if ( this.compareCarsService.carsToCompare.includes(this.annonce)){
-        this.deleteCarFromCompareArray(this.annonce, this.compareCarsService.carsToCompare);
+        this.compareCarsService.deleteCarFromCompareArray(this.annonce, this.compareCarsService.carsToCompare);
         console.log("car retiré du tableau ", this.compareCarsService.carsToCompare);
       } else {
-        console.error("car devait être retiré du tableau mais il n'y était plus");        
+        console.error("car devait être retiré du tableau mais il n'y était déjà plus");        
       }
     }
-
-  }
-
-  public deleteCarFromCompareArray(car : Car, array : Array<Car>) : Array<Car> {
-    let len = array.length;
-    let i = len-1;
-    for (i ; i>=0 ; i--){
-      if (car === array[i]){
-        array.splice(i,1);
-      } else {
-        console.log("valeur différente !");        
-      }
-    }
-    return array;
   }
 }

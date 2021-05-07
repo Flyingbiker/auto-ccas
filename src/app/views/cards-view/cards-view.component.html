@@ -2,10 +2,10 @@
     <h1>Votre réseau de vente de voitures d’occasion par des 
         garagistes professionnels</h1>
     <app-search-bar></app-search-bar>
-        <div *ngIf="true" class="selected-cars-button-parent">
+        <div *ngIf="isEnoughCarsToCompare()" class="selected-cars-button-parent">
             <a routerLink="/car-compare">
                 Voir la comparaison des <br>
-                <span>X</span> voitures
+                <span>{{ numberCarsToCompare }} </span> voitures
             </a>
         </div>
     <div class="row" *ngIf="!isPageLoading; else elseBlock">
