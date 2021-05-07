@@ -39,7 +39,8 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
 import { ModalGalleryComponent } from './components/modal-gallery/modal-gallery.component';
-import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component'
+import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component';
+import { LoginComponent } from './views/login/login.component'
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars
     SocialNetworksComponent,
     CarDetailsViewComponent,
     ModalGalleryComponent,
-    CompareCarsViewComponent,  
+    CompareCarsViewComponent,
+    LoginComponent,  
     
   ],
   imports: [

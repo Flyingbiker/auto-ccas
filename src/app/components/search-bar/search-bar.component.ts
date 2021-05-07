@@ -173,7 +173,7 @@ export class SearchBarComponent implements OnInit  {
 
   public onSubmitSearchForm(){
     // console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.brand);    
-    // console.log("envoi du formulaire, Marque: ", this.searchbarForm.value.model);    
+    // console.log("envoi du formulaire, model: ", this.searchbarForm.value.model);    
     const url = 'http://api.aymeric-bc.go.yo.fr/index.php/api/cars';
     let query = url;
     
@@ -203,6 +203,12 @@ export class SearchBarComponent implements OnInit  {
 
   public resetSearchForm(){
     //pour remettre à 0 les données de la barre de recherche
+    console.log("vérifier que ça ne lance pas la recherche");
+    this.searchbarForm.reset({
+      kilometers: [0,999999], 
+      year: [2000, new Date().getFullYear()],
+      price: [50,100000]
+    })
   }
 
 

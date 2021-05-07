@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CarDetailsViewComponent } from './views/car-details-view/car-details-view.component';
 import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars-view.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'car-details', component : CarDetailsViewComponent},  
   {path:'car-details', component : CarDetailsViewComponent},  
   {path:'car-compare', component : CompareCarsViewComponent},  
+  {path:'login-pro', component : LoginComponent},  
   {path:'', component : MainViewComponent},
   {path:'404-page', component : FourOFourPageComponent},
   {path:'**', redirectTo : '404-page'},

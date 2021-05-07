@@ -48,8 +48,6 @@
           </mat-select>
         </mat-form-field>       
       </div>
-
-      
       <div class="col-md-4">
         <div ngbDropdown class="">
           <button class="btn" id="dropdownBasic5" ngbDropdownToggle>
@@ -62,7 +60,6 @@
           </div>
         </div>
       </div>
-      
       <div class="col-md-4">
         <div ngbDropdown class="">
           <label for="price">Prix</label>
@@ -97,7 +94,6 @@
         et expansion Panel 
         https://material.angular.io/components/expansion/overview 
       </div>
-
       -->
     </div>
     <div class="row">
@@ -105,7 +101,10 @@
         <button class="example-button-row" mat-raised-button color="primary">Soumettre</button>
       </div>      
       <div class="col-md text-center">
-        <button class="example-button-row" mat-raised-button color="warn">Réinitialiser</button>
+
+        <!--type="button" pour éviter d'être type submit et d'envoyer le formulaire-->
+        <button type="button" class="example-button-row" mat-raised-button color="warn" (click)="resetSearchForm()">Réinitialiser</button>
+        
       </div>      
     </div>
   </form>

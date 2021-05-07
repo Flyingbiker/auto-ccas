@@ -54,7 +54,6 @@ export class CardsViewComponent implements OnInit {
             for (let i=1; i <= parseInt(matches[1]) ; i++){
               this.pages.push(i);
             }
-            // this.pages = parseInt(matches[1]);
           }
         }
       }      
