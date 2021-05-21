@@ -29,7 +29,22 @@
                 </ul>
             </mat-card-content>
             <mat-card-actions class="d-flex justify-content-center">
-                Afficher les stats
+                <div echarts [options]="chartOption" class="demo-chart"
+                    (chartInit)="onChartEvent($event, 'chartInit')"
+                    (chartClick)="onChartEvent($event, 'chartClick')"
+                    (chartDblClick)="onChartEvent($event, 'chartDblClick')"
+                    (chartMouseDown)="onChartEvent($event, 'chartMouseDown')"
+                    (chartMouseUp)="onChartEvent($event, 'chartMouseUp')"
+                    (chartMouseOver)="onChartEvent($event, 'chartMouseOver')"
+                    (chartMouseOut)="onChartEvent($event, 'chartMouseOut')"
+                    (chartGlobalOut)="onChartEvent($event, 'chartGlobalOut')"
+                    (chartContextMenu)="onChartEvent($event, 'chartContextMenu')"
+                    (chartDataZoom)="onChartEvent($event, 'chartDataZoom')"
+                    [autoResize]=true
+                    [loading]=true>
+                </div>
+
+
             </mat-card-actions>
         </mat-card>
     </div>

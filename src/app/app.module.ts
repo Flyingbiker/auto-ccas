@@ -43,6 +43,7 @@ import { CompareCarsViewComponent } from './views/compare-cars-view/compare-cars
 import { LoginComponent } from './views/login/login.component';
 import { DashboardProComponent } from './views/dashboard-pro/dashboard-pro.component'
 import { AuthService } from './services/auth/auth.service';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,9 @@ import { AuthService } from './services/auth/auth.service';
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
     
   ],
   providers: [

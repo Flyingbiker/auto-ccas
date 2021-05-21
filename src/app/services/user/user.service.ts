@@ -9,6 +9,7 @@ export class UserService {
 
   public arrayJson : Array<any>;
   public usersArray : Array<User> = [];
+  public userConnected : User | null = null ;
 
   constructor(private httpClient : HttpClient) {  
     this.arrayJson= [
@@ -42,7 +43,18 @@ export class UserService {
           console.error('Erreur lors de la requête Get pour récupérer les Users ' + error);
         }
       );
+  }
 
+  public getUserById(id : number) : void {
+      this.httpClient.get<User>('http://formation-dwwm/Symfony/API_buisness_case/public/index.php/api/admin/pros/'+id)
+        .subscribe(
+          (response) => {
+            this.userConnected = response;
+          },
+          (err) => { console.error(err);
+          }
+        );
+    //API key "ROLE_USER", "ROLE_PRO" 07f32d41d5205b0ce26898518a2afae48c5af31bafc27252a46cf8b5b806e294
   }
   
 }
